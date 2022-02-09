@@ -9,6 +9,7 @@ My LeetCode sample code
 | 9. Palindrome Number | Easy | [c](9/9.c), [rust](9/9.rs) | |
 | 66. Plus One | Easy | rust | |
 | 190. Island Perimeter | Easy | c | |
+| 192. Word Frequency | Medium | [bash](192/192.sh) | |
 | 193. Valid Phone Numbers | Easy | [bash](193/193.sh) | |
 | 194. Transpose File | Medium | [bash](194/194.sh) | |
 | 195. Tenth Line | Easy | [bash](195/195.sh) | |
