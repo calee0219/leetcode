@@ -10,6 +10,7 @@ My LeetCode sample code
 | 66. Plus One | Easy | rust | |
 | 190. Island Perimeter | Easy | c | |
 | 193. Valid Phone Numbers | Easy | [bash](193/193.sh) | |
+| 194. Transpose File | Medium | [bash](194/194.sh) | |
 | 195. Tenth Line | Easy | [bash](195/195.sh) | |
 | 234. Palindrome Linked List | Easy | [c](234/234.c), [rust](234/234.rs) | |
 | 264. Ugly Number II | Medium | rust | |
