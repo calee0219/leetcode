@@ -1,12 +1,13 @@
 # leetcode
 My LeetCode sample code
 
-| Title | Difficulty | Language | Blog |
+| Title | Difficulty | Language | Ref, Blog |
 | --- | --- | --- | --- |
 | 1. Two Sum | Easy | cpp, python3| |
 | 2. Add Two Numbers | Medium | golang | |
 | 3. Longest Substring Without Repeating Characters | Medium | c | |
 | 9. Palindrome Number | Easy | [c](9/9.c), [rust](9/9.rs) | |
+| 53. Maximum Subarray | Easy | [c](53/53.c), [rust](53/53.rs) | Kadane’s Algorithm |
 | 66. Plus One | Easy | rust | |
 | 190. Island Perimeter | Easy | c | |
 | 192. Word Frequency | Medium | [bash](192/192.sh) | |
