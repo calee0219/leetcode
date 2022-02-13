@@ -1,4 +1,6 @@
-# leetcode
+#+Title: leetcode
+#+OPTIONS: tex:imagemagick
+
 My LeetCode sample code
 
 | Title | Difficulty | Language | Ref, Blog |
@@ -20,6 +22,6 @@ My LeetCode sample code
 | 441. Arranging Coins | Easy | rust | |
 | 461. Hamming Distance | Easy | rust | |
 | 463. Island Perimeter | Easy | typescript | |
-| 523. Continuous Subarray Sum | Medium | [c](523/523.c) | HashMap, but the faster solution in C is using $O(n^2)$ |
+| 523. Continuous Subarray Sum | Medium | [c](523/523.c) | `HashMap`, but the faster solution in C is using `O(n^2)`     |
 | 1742. Maximum Number of Balls in a Box | Easy | [c](1742/1742.c), [rust](1742/1742.rs) | |
-| 2169. Count Operations to Obtain Zero | Easy | [c](2169/2169.c), [rust](2169/2169.rs)  | |
+| 2169. Count Operations to Obtain Zero | Easy | [c](2169/2169.c), [rust](2169/2169.rs) | |
