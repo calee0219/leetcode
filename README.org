@@ -28,3 +28,4 @@ My LeetCode sample code
 | 2176. Count Equal and Divisible Pairs in an Array | Easy | [[2176/2176.c][c]], [[2176/2176.c][rust]] | |
 | 2177. Find Three Consecutive Integers That Sum to a Given Number | Medium | [[2177/2177.c][c]], [[2177/2177.rs][rust]] | Math, it should be Easy |
 | 2178. Maximum Split of Positive Even Integers | Medium | [[2178/2178.c][c]], [[2178/2178.rs][rust]] | |
+| 2180. Count Integers With Even Digit Sum | Easy | [[2180/2180.c][c]], [[2180/2180.rs][rust]] | |
