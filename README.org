@@ -29,3 +29,5 @@ My LeetCode sample code
 | 2177. Find Three Consecutive Integers That Sum to a Given Number | Medium | [[2177/2177.c][c]], [[2177/2177.rs][rust]] | Math, it should be Easy |
 | 2178. Maximum Split of Positive Even Integers | Medium | [[2178/2178.c][c]], [[2178/2178.rs][rust]] | |
 | 2180. Count Integers With Even Digit Sum | Easy | [[2180/2180.c][c]], [[2180/2180.rs][rust]] | |
+| 2181. Merge Nodes in Between Zeros | [[2181/2181.c][c]] | |
+| 2182. Construct String With Repeat Limit | Medium | [[2182/2182.c][c]], [[2182/2182.rs][rust]] | Greedy |
