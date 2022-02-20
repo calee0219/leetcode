@@ -1,0 +1,28 @@
+# leetcode
+
+My LeetCode sample code
+
+| Title | Difficulty | Language | Reference, Blog |
+| --- | --- | --- | --- |
+| 1. Two Sum | Easy | cpp, python3| |
+| 2. Add Two Numbers | Medium | golang | |
+| 3. Longest Substring Without Repeating Characters | Medium | c | |
+| 9. Palindrome Number | Easy | [[9/9.c][c]], [[9/9.rs][rust]] | |
+| 53. Maximum Subarray | Easy | [[53/53.c][c]], [[53/53.rs][rust]] | Kadane’s Algorithm |
+| 66. Plus One | Easy | rust | |
+| 190. Island Perimeter | Easy | c | |
+| 192. Word Frequency | Medium | [[192/192.sh][bash]] | |
+| 193. Valid Phone Numbers | Easy | [[193/193.sh][bash]] | |
+| 194. Transpose File | Medium | [[194/194.sh][bash]] | |
+| 195. Tenth Line | Easy | [[195/195.sh][bash]] | |
+| 234. Palindrome Linked List | Easy | [[234/234.c][c]], [[234/234.rs][rust]] | |
+| 264. Ugly Number II | Medium | rust | |
+| 365. Water and Jug Problem | Medium | [[365/365.c][c]], [[365/365.rs][rust]] | |
+| 441. Arranging Coins | Easy | rust | |
+| 461. Hamming Distance | Easy | rust | |
+| 463. Island Perimeter | Easy | typescript | |
+| 523. Continuous Subarray Sum | Medium | [[523/523.c][c]], [[523/523.rs][rust]]  | HashMap, but due to the testcast is not strong enough, the fastest solution (dashboard sample) in C is using `O(n^2)` with checking sum < k to speed up return |
+| 1742. Maximum Number of Balls in a Box | Easy | [[1742/1742.c][c]], [[1742/1742.rs][rust]] | |
+| 2169. Count Operations to Obtain Zero | Easy | [[2169/2169.c][c]], [[2169/2169.rs][rust]] | |
+| 2170. Minimum Operations to Make the Array Alternating | Medium | [[2170/2170.c][c]], [[2170/2170.rs][rust]] | |
+| 2176. Count Equal and Divisible Pairs in an Array | Easy | [[2176/2176.c][c]], [[2176/2176.c][rust]] | |
