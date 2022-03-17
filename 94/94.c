@@ -30,3 +30,34 @@ int* inorderTraversal(struct TreeNode* root, int* returnSize){
     *returnSize = idx;
     return ret;
 }
+
+// Morris Traversal
+int* inorderTraversal(struct TreeNode* root, int* returnSize){
+    int * arr = malloc(101 * sizeof(int));
+    size_t arr_idx = 0;
+    struct TreeNode * node = root;
+    while (node) {
+        if (node->left) {
+            struct TreeNode * tmp = node->left;
+            // need to check cycle here
+            while (tmp->right && tmp->right != node) {
+                tmp = tmp->right;
+            }
+            if (tmp->right) {
+                // here's the cycle, tmp->right = node
+                arr[arr_idx++] = node->val;
+                node = node->right;
+            } else {
+                // true leaf
+                tmp->right = node;
+                node = node->left;
+            }
+        } else {
+            arr[arr_idx++] = node->val;
+            node = node->right;
+        }
+    }
+    // printf("%d ", arr_idx);
+    *returnSize = arr_idx;
+    return arr;
+}
