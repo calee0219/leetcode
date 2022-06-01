@@ -1,28 +1,28 @@
 class Solution {
-    vector<int> group;
-    int find(int curr) {
-        if (group[curr] == curr)
-            return curr;
-        group[curr] = find(group[curr]);
-        return group[curr];
-    }
-    void uni(int A, int B) {
-        int a = find(A);
-        int b = find(B);
-        group[a] = b;
-    }
 public:
     int countComponents(int n, vector<vector<int>>& edges) {
-        group.resize(n);
-        for (int idx = 0; idx < n; ++idx)
-            group[idx] = idx;
+        vector<vector<int>> graph (n, vector<int>());
         for (auto & e: edges) {
-            uni(e[0], e[1]);
+            graph[e[0]].push_back(e[1]);
+            graph[e[1]].push_back(e[0]);
         }
+        vector<bool> visited (n, false);
+        queue<int> q;
         int ans = 0;
         for (int idx = 0; idx < n; ++idx) {
-            if (idx == group[idx])
+            if (visited[idx] == false) {
                 ans += 1;
+                q.push(idx);
+                while(!q.empty()) {
+                    int curr = q.front();
+                    q.pop();
+                    visited[curr] = true;
+                    for (auto & next: graph[curr]) {
+                        if (visited[next] == false)
+                            q.push(next);
+                    }
+                }
+            }
         }
         return ans;
     }
