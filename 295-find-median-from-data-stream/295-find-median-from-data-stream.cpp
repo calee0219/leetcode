@@ -7,16 +7,12 @@ public:
     }
     
     void addNum(int num) {
-        if (left.empty() || num < left.top()) {
-            left.push(num);
-        } else {
-            right.push(-num);
-        }
-        if (left.size() > right.size() + 1) {
-            right.push(-left.top());
-            left.pop();
-        }
-        if (right.size() > left.size() + 1) {
+        left.push(num);
+        
+        right.push(-left.top());
+        left.pop();
+        
+        if (left.size() < right.size()) {
             left.push(-right.top());
             right.pop();
         }
@@ -26,10 +22,8 @@ public:
     double findMedian() {
         if (left.size() == right.size()) {
             return ((double)(left.top() - right.top())) / 2;
-        } else if (left.size() > right.size()) {
-            return left.top();
         } else {
-            return -right.top();
+            return left.top();
         }
     }
 };
