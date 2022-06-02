@@ -8,7 +8,7 @@ struct TrieNode {
 class Solution {
 public:
     string alienOrder(vector<string>& words) {
-        vector<vector<bool>> out (26, vector<bool>(26, false));
+        vector<unordered_set<int>> out (26, unordered_set<int>());
         vector<int> in (26, 0);
         bool visited[26] = {};
         TrieNode * head = new TrieNode;
@@ -21,17 +21,12 @@ public:
                 
                 if (curr->order.empty() || curr->order.back()->val != now) {
                     if (curr->order.size() > 0) {
-                        out[curr->order.back()->val][now] = true;
+                        out[curr->order.back()->val].insert(now);
                         in[now] |= (1<<(curr->order.back()->val));
                     }
                     curr->order.push_back(new TrieNode(now));
                 }
                 curr = curr->order.back();
-                
-                // if (idx > 0) {
-                //     out[word[idx-1]-'a'][now] = true;
-                //     in[now] |= (1<<(word[idx-1]-'a'));
-                // }
             }
             if (curr->order.size() > 0)
                 return "";
@@ -49,12 +44,10 @@ public:
             q.pop();
             visited[curr] = false;
             ans += (curr + 'a');
-            for (int idx = 0; idx < 26; ++idx) {
-                if (out[curr][idx]) {
-                    in[idx] &= ((1<<26)-1)^(1<<curr);
-                    if (in[idx] == 0) {
-                        q.push(idx);
-                    }
+            for (auto & idx: out[curr]) {
+                in[idx] &= ((1<<26)-1)^(1<<curr);
+                if (in[idx] == 0) {
+                    q.push(idx);
                 }
             }
         }
