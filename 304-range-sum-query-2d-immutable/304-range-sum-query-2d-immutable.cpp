@@ -1,21 +1,13 @@
 class NumMatrix {
-    vector<vector<int>> prefix_sum;
+    int prefix_sum[210][210];
 public:
     NumMatrix(vector<vector<int>>& matrix) {
         int m = matrix.size();
         int n = matrix[0].size();
-        prefix_sum.push_back(vector<int>(n+1, 0));
+        memset(prefix_sum, 0, sizeof(prefix_sum));
         for (int x = 0; x < m; ++x) {
-            vector<int> v;
-            v.push_back(0);
             for (int y = 0; y < n; ++y) {
-                v.push_back(v.back() + matrix[x][y]);
-            }
-            prefix_sum.push_back(v);
-        }
-        for (int x = 1; x <= m; ++x) {
-            for (int y = 1; y <= n; ++y) {
-                prefix_sum[x][y] += prefix_sum[x-1][y];
+                prefix_sum[x+1][y+1] = prefix_sum[x][y+1] + prefix_sum[x+1][y] + matrix[x][y] - prefix_sum[x][y];
             }
         }
         // for (int x = 0; x <= m; ++x) {
