@@ -6,12 +6,12 @@ public:
         // cout << tx << " " << ty << endl;
         int step[310][310] = {};
         pair<int,int> dir[] = {{2,1}, {1,2}, {2,-1}, {1,-2}, {-2,-1}, {-1,-2}, {-2,1}, {-1,2}};
-        priority_queue<pair<int,pair<int,int>>> q;
+        queue<pair<int,pair<int,int>>> q;
         q.push({0,{2,2}});
         while (!q.empty()) {
-            int cx = q.top().second.first;
-            int cy = q.top().second.second;
-            int lev = -q.top().first;
+            int cx = q.front().second.first;
+            int cy = q.front().second.second;
+            int lev = -q.front().first;
             q.pop();
             for (auto & d: dir) {
                 int nx = cx + d.first;
