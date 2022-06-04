@@ -75,7 +75,7 @@ public:
     BookMyShow(int n, int m) {
         col_num = m;
         root = buildTree(0, n-1, m);
-        cout << root->total_val << endl;
+        // cout << root->total_val << endl;
     }
     
     vector<int> gather(int k, int maxRow) {
