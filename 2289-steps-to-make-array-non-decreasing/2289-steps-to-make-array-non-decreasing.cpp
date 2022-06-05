@@ -1,8 +1,6 @@
 class Solution {
 public:
     int totalSteps(vector<int>& nums) {
-        ios_base::sync_with_stdio(false);
-        std::cin.tie(NULL);
         stack<int> sk;
         int prev_max = 0;
         int ans = 0;
