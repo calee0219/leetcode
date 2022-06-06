@@ -23,8 +23,9 @@ public:
                 if (nX < m && nX >= 0 && nY < n && nY >= 0 && visited[nX][nY] < remain) {
                     if (remain >= grid[nX][nY]) {
                         // block
-                        q.push({{remain-grid[nX][nY], step+1}, {nX, nY}});
-                        visited[nX][nY] = remain-grid[nX][nY];
+                        int tmp = remain-grid[nX][nY];
+                        q.push({{tmp, step+1}, {nX, nY}});
+                        visited[nX][nY] = tmp;
                     }
                 }
             }
