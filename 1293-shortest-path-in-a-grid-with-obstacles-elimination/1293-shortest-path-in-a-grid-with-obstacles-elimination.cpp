@@ -4,6 +4,7 @@ public:
     int shortestPath(vector<vector<int>>& grid, int k) {
         int m = grid.size();
         int n = grid[0].size();
+        if (k >= n + m - 2) return n + m - 2;
         vector<vector<int>> visited (m, vector<int> (n, -1));
         queue<pair<pair<int,int>,pair<int,int>>> q;
         q.push({{k, 0}, {0,0}});
