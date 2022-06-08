@@ -3,15 +3,20 @@ public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
         if(temperatures.size() == 0)
             return {};
-        stack<int> sk;
+        int n = temperatures.size();
         vector<int> ans (temperatures.size(), 0);
-        for (int idx = temperatures.size()-1; idx >= 0; --idx) {
-            while (!sk.empty() && temperatures[sk.top()] <= temperatures[idx]) {
-                sk.pop();
+        for (int idx = n-2; idx >= 0; --idx) {
+            int curr = idx + 1;
+            bool check = false;
+            while (temperatures[curr] <= temperatures[idx]) {
+                if (ans[curr] == 0) {
+                    check = true;
+                    break;
+                }
+                curr += ans[curr];
             }
-            if (!sk.empty())
-                ans[idx] = sk.top()-idx;
-            sk.push(idx);
+            if (check) continue;
+            ans[idx] = curr-idx;
         }
         return ans;
     }
