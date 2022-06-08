@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
+        if(temperatures.size() == 0)
+            return {};
         stack<int> sk;
         vector<int> ans (temperatures.size(), 0);
         for (int idx = temperatures.size()-1; idx >= 0; --idx) {
