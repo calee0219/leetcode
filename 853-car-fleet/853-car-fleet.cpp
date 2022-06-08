@@ -7,16 +7,17 @@ public:
             arr.push_back({position[idx], speed[idx]});
         }
         sort(arr.begin(), arr.end());
-        stack<pair<int,int>> sk;
-        sk.push(arr[0]);
-        for (int idx = 1; idx < n; ++idx) {
-            while(!sk.empty() && (sk.top().second > arr[idx].second) &&
-                  (double)(sk.top().first-arr[idx].first)/(arr[idx].second-sk.top().second)*arr[idx].second+arr[idx].first <= target) {
-                sk.pop();
+        double time = 0;
+        int idx = n-1;
+        int ans = 0;
+        while (idx >= 0) {
+            double t = (double)(target - arr[idx].first) / arr[idx].second;
+            if (t > time) {
+                time = t;
+                ans += 1;
             }
-            sk.push(arr[idx]);
-            cout << sk.size() << endl;
+            idx--;
         }
-        return sk.size();
+        return ans;
     }
 };
