@@ -7,7 +7,7 @@ class Solution {
     }
 public:
     int minEatingSpeed(vector<int>& piles, int h) {
-        int l = 1, r = accumulate(piles.begin(), piles.end(), 0, [](int a, int b) {return max(a, b);}) + 1;
+        int l = 1, r = 1000000001;
         while (l < r) {
             n = l + (r-l) / 2;
             if (check(piles) > h) {
