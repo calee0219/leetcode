@@ -9,7 +9,7 @@ public:
                 us.erase(s[r++]);
             }
             us.insert(s[l]);
-            ans = max(ans, (int)us.size());
+            ans = max(ans, l - r + 1);
         }
         return ans;
     }
