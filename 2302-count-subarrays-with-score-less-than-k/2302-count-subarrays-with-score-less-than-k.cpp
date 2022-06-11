@@ -1,6 +1,8 @@
 class Solution {
 public:
     long long countSubarrays(vector<int>& nums, long long k) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
         int n = nums.size();
         int l = 0;
         long long sum = 0;
