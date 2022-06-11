@@ -3,16 +3,15 @@ public:
     int minOperations(vector<int>& nums, int x) {
         // go from left
         int n = nums.size();
+        int ans = INT_MAX;
         unordered_map<int, int> um;
         um.insert({0, 0});
         int sum = 0;
         for (int idx = 0; idx < n; ++idx) {
             sum += nums[idx];
+            if (sum == x) ans = idx + 1;
             um.insert({sum, idx+1});
         }
-        int ans = INT_MAX;
-        if (um.find(x) != um.end())
-            ans = min(ans, um[x]);
         // cout << ans << endl;
         sum = 0;
         for (int idx = n-1; idx >= 0; --idx) {
