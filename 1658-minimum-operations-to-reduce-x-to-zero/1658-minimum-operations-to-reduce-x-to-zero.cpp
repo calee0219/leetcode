@@ -1,27 +1,26 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int x) {
-        // go from left
         int n = nums.size();
-        int ans = INT_MAX;
-        unordered_map<int, int> um;
-        um.insert({0, 0});
+        int l = 0, r = n-1;
         int sum = 0;
-        for (int idx = 0; idx < n; ++idx) {
-            sum += nums[idx];
-            if (sum == x) ans = idx + 1;
-            um.insert({sum, idx+1});
+        int ans = INT_MAX;
+        while (sum < x && l < n) {
+            sum += nums[l++];
+            if (sum == x) ans = min(ans, l);
         }
-        // cout << ans << endl;
-        sum = 0;
-        for (int idx = n-1; idx >= 0; --idx) {
-            sum += nums[idx];
-            if (um.find(x - sum) != um.end() && (um[x-sum] + (n-idx) <= n)) {
-                ans = min(ans, um[x-sum] + (n-idx));
-                // cout << ans << endl;
+        if (l == n && sum < x) return -1;
+        if (l == n && sum == x) return n;
+        while (r >= 0) {
+            sum += nums[r];
+            while (l > 0 && sum > x) {
+                sum -= nums[--l];
             }
+            if (sum == x)
+                ans = min(ans, n - (r-l));
+            r--;
         }
         if (ans == INT_MAX) return -1;
-        else return ans;
+        return ans;
     }
 };
