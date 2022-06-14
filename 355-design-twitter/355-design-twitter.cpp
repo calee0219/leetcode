@@ -17,7 +17,7 @@ public:
         priority_queue<pair<int,int>> pq;
         for (int id: following[userId]) {
             // cout << id << " " << tweet[id].size() << endl;
-            for (int idx = tweet[id].size()-1; idx >= 0 && (idx >= (int)tweet[id].size() - 10); --idx) {
+            for (int idx = tweet[id].size()-1; idx >= 0; --idx) {
                 // cout << tweet[id][idx].first << " " << tweet[id][idx].second << endl;
                 pq.push({-tweet[id][idx].first, tweet[id][idx].second});
                 if (pq.size() > 10) {
