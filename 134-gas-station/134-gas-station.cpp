@@ -3,11 +3,11 @@ public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
         // if (accumulate(gas.begin(), gas.end(), 0) < accumulate(cost.begin(), cost.end(), 0))
         //     return -1;
-        // int n = gas.size();
+        int n = gas.size();
         int total = 0;
         int ans = 0;
         int sum = 0;
-        for (int idx = 0; idx < gas.size(); ++idx) {
+        for (int idx = 0; idx < n; ++idx) {
             sum += gas[idx] - cost[idx];
             if (sum < 0) {
                 ans = idx + 1;
@@ -16,7 +16,6 @@ public:
             total += gas[idx] - cost[idx];
             // cout << diff[idx] << " ";
         }
-        if (total < 0) return -1;
-        return ans;
+        return total < 0 ? -1 : ans;
     }
 };
