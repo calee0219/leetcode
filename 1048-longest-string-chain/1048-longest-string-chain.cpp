@@ -5,12 +5,12 @@ public:
         int ans = 0;
         sort(words.begin(), words.end(), [](string a, string b) {return a.size() < b.size();});
         for (auto word: words) {
-            if (word.size() == 1) {
-                um.insert({word, 1});
-                ans = max(ans, 1);
-                // cout << 1 << " ";
-                continue;
-            }
+            // if (word.size() == 1) {
+            //     um.insert({word, 1});
+            //     ans = max(ans, 1);
+            //     // cout << 1 << " ";
+            //     continue;
+            // }
             int find = 0;
             for (int idx = 0; idx < word.size(); ++idx) {
                 string sub = word.substr(0,idx) + word.substr(idx+1);
