@@ -29,13 +29,13 @@ class Solution {
 public:
     vector<string> wordsAbbreviation(vector<string>& words) {
         int words_size = words.size();
-        unordered_map<int, TrieNode *> trieForest[256];
+        unordered_map<int, TrieNode *> trieForest[26];
         // build trie
         for (int idx = 0; idx < words_size; ++idx) {
-            if (trieForest[words[idx][words[idx].size()-1]].find(words[idx].size()) == trieForest[words[idx][words[idx].size()-1]].end()) {
-                trieForest[words[idx][words[idx].size()-1]].insert({words[idx].size(), new TrieNode});
+            if (trieForest[words[idx][words[idx].size()-1]-'a'].find(words[idx].size()) == trieForest[words[idx][words[idx].size()-1]-'a'].end()) {
+                trieForest[words[idx][words[idx].size()-1]-'a'].insert({words[idx].size(), new TrieNode});
             }
-            TrieNode * curr = trieForest[words[idx][words[idx].size()-1]][words[idx].size()];
+            TrieNode * curr = trieForest[words[idx][words[idx].size()-1]-'a'][words[idx].size()];
             string tmp = "";
             for (char ch: words[idx]) {
                 tmp += ch;
@@ -48,7 +48,7 @@ public:
         }
         // iterate trie
         vector<string> ret (words_size, "");
-        for (char ch = 'a'; ch <= 'z'; ++ch)
+        for (char ch = 0; ch < 26; ++ch)
             for (auto & head: trieForest[ch])
                 dfs(head.second, "", ret);
         return ret;
