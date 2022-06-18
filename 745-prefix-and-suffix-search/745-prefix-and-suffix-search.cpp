@@ -37,15 +37,21 @@ public:
         }
     }
     
+    unordered_map<string,int> cache;
     int f(string prefix, string suffix) {
+        string cache_str = prefix + "|" + suffix;
+        if (cache.find(cache_str) != cache.end())
+            return cache[cache_str];
         // find by prefix
         TrieNode * prefixCurr = prefixHead;
         for (int idx = 0; idx < prefix.size(); ++idx) {
             char ch = prefix[idx] - 'a';
             if (prefixCurr->next[ch] != NULL)
                 prefixCurr = prefixCurr->next[ch];
-            else
+            else {
+                cache[cache_str] = -1;
                 return -1;
+            }
         }
         // find by suffix
         TrieNode * suffixCurr = suffixHead;
@@ -53,14 +59,17 @@ public:
             char ch = suffix[idx] - 'a';
             if (suffixCurr->next[ch] != NULL)
                 suffixCurr = suffixCurr->next[ch];
-            else
+            else {
+                cache[cache_str] = -1;
                 return -1;
+            }
         }
         // search onPath from back to front
         int pe = 0;
         int se = 0;
         while (pe < prefixCurr->onPath.size() && se < suffixCurr->onPath.size()) {
             if (prefixCurr->onPath[pe] == suffixCurr->onPath[se]) {
+                cache[cache_str] = prefixCurr->onPath[pe];
                 return prefixCurr->onPath[pe];
             } else if (prefixCurr->onPath[pe] < suffixCurr->onPath[se]) {
                 se++;
@@ -68,6 +77,7 @@ public:
                 pe++;
             }
         }
+        cache[cache_str] = -1;
         return -1;
     }
 };
