@@ -1,15 +1,15 @@
 struct TrieNode {
-    TrieNode * next[26];
+    map<char,TrieNode *> next;
     string str;
-    TrieNode(): str("") { memset(next, 0, sizeof(next)); }
+    TrieNode(): str("") {  }
 };
 
 class Solution {
     bool DFS(TrieNode * curr, vector<string> & tmp) {
         if (tmp.size() == 3) return true;
         if (curr->str != "") tmp.push_back(curr->str);
-        for (int idx = 0; idx < 26; ++idx) {
-            if (curr->next[idx] != NULL && DFS(curr->next[idx], tmp)) {
+        for (auto & it: curr->next) {
+            if (DFS(it.second, tmp)) {
                 return true;
             }
         }
@@ -23,9 +23,9 @@ public:
         for (auto & product: products) {
             TrieNode * curr = head;
             for (auto ch: product) {
-                if (curr->next[ch-'a'] == NULL)
-                    curr->next[ch-'a'] = new TrieNode;
-                curr = curr->next[ch-'a'];
+                if (curr->next.find(ch) == curr->next.end())
+                    curr->next.insert({ch, new TrieNode});
+                curr = curr->next[ch];
             }
             curr->str = product;
         }
@@ -37,12 +37,12 @@ public:
                 ans.push_back({});
                 continue;
             }
-            if (curr->next[ch-'a'] == NULL) {
+            if (curr->next.find(ch) == curr->next.end()) {
                 isNull = true;
                 ans.push_back({});
                 continue;
             }
-            curr = curr->next[ch-'a'];
+            curr = curr->next[ch];
             // DFS here
             vector<string> tmp;
             DFS(curr, tmp);
