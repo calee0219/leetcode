@@ -1,36 +1,21 @@
 class Solution {
 public:
     vector<int> minAvailableDuration(vector<vector<int>>& slots1, vector<vector<int>>& slots2, int duration) {
-        sort(slots1.begin(), slots1.end());
-        sort(slots2.begin(), slots2.end());
-        int p1 = 0, p2 = 0;
-        while (p1 < slots1.size() && p2 < slots2.size()) {
-            if (slots1[p1][0] < slots2[p2][0]) {
-                if (slots1[p1][1] > slots2[p2][0]) {
-                    // intersect, start at slots2[p2][0]
-                    if (min(slots1[p1][1], slots2[p2][1]) - slots2[p2][0] >= duration) {
-                        return {slots2[p2][0], slots2[p2][0] + duration};
-                    }
-                    if (slots1[p1][1] < slots2[p2][1])
-                        p1++;
-                    else
-                        p2++;
-                } else {
-                    p1++;
-                }
-            } else { // slots1[p1][0] >= slots2[p2][0]
-                if (slots2[p2][1] > slots1[p1][0]) {
-                    if (min(slots1[p1][1], slots2[p2][1]) - slots1[p1][0] >= duration) {
-                        return {slots1[p1][0], slots1[p1][0] + duration};
-                    }
-                    if (slots1[p1][1] < slots2[p2][1])
-                        p1++;
-                    else
-                        p2++;
-                } else {
-                    p2++;
-                }
-            }
+        priority_queue<pair<int,int>> pq;
+        for (auto & s: slots1) {
+            pq.push({-s[0], -s[1]});
+        }
+        for (auto & s: slots2) {
+            pq.push({-s[0], -s[1]});
+        }
+        pair<int,int> p1, p2;
+        p1 = pq.top(); pq.pop();
+        while(!pq.empty()) {
+            p2 = pq.top(); pq.pop();
+            if (p2.first - duration >= p1.second && p2.first - duration >= p2.second)
+                return {-p2.first, -p2.first + duration};
+            if (p1.second > p2.second)
+                p1 = p2;
         }
         return {};
     }
