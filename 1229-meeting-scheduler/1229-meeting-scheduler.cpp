@@ -18,7 +18,7 @@ public:
             auto & p2 = pq.top();
             if (p2.first - duration >= p1.second)
                 return {-p2.first, -p2.first + duration};
-            // if (p1.second > p2.second)
+            // if (p1.second > p2.second) // because we have first check duration, so we don't need to warry about this condition
             //     p1 = p2;
         }
         return {};
