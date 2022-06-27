@@ -4,7 +4,7 @@ public:
         int ans = 0;
         for (char ch: n) {
             ans = max(ans, ch-'0');
-            if (ans == 9) return ans;
+            // if (ans == 9) return ans;
         }
         return ans;
     }
