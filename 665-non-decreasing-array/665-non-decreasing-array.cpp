@@ -5,8 +5,7 @@ public:
         for (int idx = 0; idx < nums.size() - 1; ++idx) {
             if (nums[idx] > nums[idx+1]) {
                 if (check) return false;
-                if (idx == 0 || nums[idx+1] >= nums[idx-1]) check = true;
-                else {
+                if (idx > 0 && nums[idx+1] < nums[idx-1]) {
                     nums[idx+1] = nums[idx];
                 }
                 check = true;
