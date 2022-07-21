@@ -12,7 +12,7 @@ class Solution {
     void rec(ListNode * node, int right, ListNode ** replace, int until) {
         if (right > 0)
             rec(node->next, right-1, replace, until);
-        cout << right << " " << until << endl;
+        // cout << right << " " << until << endl;
         if (right < until) {
             swap((*replace)->val, node->val);
             *replace = (*replace)->next;
