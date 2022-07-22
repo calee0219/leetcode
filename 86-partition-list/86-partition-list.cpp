@@ -11,10 +11,10 @@
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        if (!head) return head;
+        // if (!head) return head;
         ListNode ** head_addr = &head;
         ListNode ** ge_ptr = &head;
-        ListNode ** lt_ptr = &(head->next);
+        ListNode ** lt_ptr = &head;
         for (; *ge_ptr; ge_ptr = &(*ge_ptr)->next) {
             if (*lt_ptr == *ge_ptr) lt_ptr = &(*lt_ptr)->next;
             if ((*ge_ptr)->val >= x) {
