@@ -21,9 +21,9 @@ class NumArray {
     }
     void update_tree(Node * node, int index, int val) {
         if (node->l_idx == node->r_idx) {
-            if (index != node->l_idx) {
-                cout << "!!!!! wow error !!!!! " << index << " " << node->l_idx << endl;
-            }
+            // if (index != node->l_idx) {
+            //     cout << "!!!!! wow error !!!!! " << index << " " << node->l_idx << endl;
+            // }
             node->sum = val;
         } else {
             int med = node->l_idx + (node->r_idx - node->l_idx) / 2;
@@ -49,7 +49,7 @@ class NumArray {
         if (r <= med) {
             return sum_tree(node->left, l, r);
         }
-        cout << "????? " << l << " " << med << " " << r << endl;
+        // cout << "????? " << l << " " << med << " " << r << endl;
         return 0;
     }
 public:
