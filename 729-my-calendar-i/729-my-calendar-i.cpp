@@ -11,18 +11,11 @@ public:
             tree.insert({start, end});
             return true;
         }
-        if (it != tree.end()) {
-            auto next = it;
-            if (next->first < end) {
-                return false;
-            }
+        if (it != tree.end() && it->first < end) {
+            return false;
         }
-        if (it != tree.begin()) {
-            auto prev = it;
-            prev--;
-            if (prev->second > start) {
-                return false;
-            }
+        if (it != tree.begin() && (--it)->second > start) {
+            return false;
         }
         tree.insert({start, end});
         return true;
