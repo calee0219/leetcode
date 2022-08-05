@@ -6,7 +6,7 @@ class Solution {
         if (mem[target] != -1) return mem[target];
         int ans = 0;
         for (int n: nums) {
-            ans += combinationSum4(nums, target-n);
+            ans += rec(nums, target-n);
         }
         // cout << target << " ";
         mem[target] = ans;
